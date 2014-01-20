@@ -52,6 +52,15 @@ gfxterm gfxmenu efi_gop efi_uga video loadbios gzio video_bochs \
 video_cirrus echo true loadenv
 ```
 
+Or this command for the 32 bits version
+
+```
+grub-mkimage -d /usr/lib/grub/i386-efi/ -o BOOTIA32.efi -O i386-efi \
+--prefix /efi/boot part_gpt part_msdos lvm fat ext2 chain boot configfile \
+normal minicmd linux reboot halt search gfxterm gfxmenu efi_gop efi_uga \
+video loadbios gzio video_bochs video_cirrus echo true loadenv
+```
+
 ## Build the image
 
 ```
